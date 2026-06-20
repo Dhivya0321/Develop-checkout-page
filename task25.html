@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout Page</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.checkout-container{
+    width:100%;
+    max-width:1000px;
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.checkout-form{
+    padding:30px;
+}
+
+.checkout-form h2{
+    margin-bottom:20px;
+    color:#333;
+}
+
+.input-group{
+    margin-bottom:15px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+.input-group input,
+.input-group select{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.order-summary{
+    background:#f7f7f7;
+    padding:30px;
+}
+
+.order-summary h2{
+    margin-bottom:20px;
+}
+
+.product{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
+}
+
+.total{
+    border-top:2px solid #ddd;
+    margin-top:20px;
+    padding-top:15px;
+    font-size:24px;
+    font-weight:bold;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    background:#667eea;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    margin-top:15px;
+}
+
+button:hover{
+    background:#5563d6;
+}
+
+@media(max-width:768px){
+    .checkout-container{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="checkout-container">
+
+    <div class="checkout-form">
+        <h2>Billing Details</h2>
+
+        <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="name">
+        </div>
+
+        <div class="input-group">
+            <label>Email</label>
+            <input type="email" id="email">
+        </div>
+
+        <div class="input-group">
+            <label>Phone</label>
+            <input type="tel" id="phone">
+        </div>
+
+        <div class="input-group">
+            <label>Address</label>
+            <input type="text" id="address">
+        </div>
+
+        <div class="input-group">
+            <label>Payment Method</label>
+            <select id="payment">
+                <option>Credit Card</option>
+                <option>Debit Card</option>
+                <option>UPI</option>
+                <option>Cash on Delivery</option>
+            </select>
+        </div>
+
+        <button onclick="placeOrder()">Place Order</button>
+    </div>
+
+    <div class="order-summary">
+        <h2>Order Summary</h2>
+
+        <div class="product">
+            <span>Smart Watch</span>
+            <span>₹2,999</span>
+        </div>
+
+        <div class="product">
+            <span>Headphones</span>
+            <span>₹1,999</span>
+        </div>
+
+        <div class="product">
+            <span>Shipping</span>
+            <span>₹100</span>
+        </div>
+
+        <div class="total">
+            Total: ₹5,098
+        </div>
+    </div>
+
+</div>
+
+<script>
+function placeOrder(){
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
+    let address = document.getElementById("address").value;
+
+    if(name === "" || email === "" || phone === "" || address === ""){
+        alert("Please fill all fields!");
+        return;
+    }
+
+    alert("Order Placed Successfully!");
+}
+</script>
+
+</body>
+</html>
